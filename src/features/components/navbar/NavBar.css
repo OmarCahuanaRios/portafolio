@@ -15,9 +15,18 @@ li{
     list-style: none;
 }
 
+
+
+.lightNavLink{
+    color:white
+}
+
+.darkNavLink{
+    color:black;
+}
+
 a{
     text-decoration: none;
-    color:white
 }
 
 .nav{
@@ -49,15 +58,17 @@ a{
     height: 0.2rem;
     margin:0.4rem;
     background: white;
+    transition: 0.3s ease-in;
 }
 
 .navToogler{
-    cursor:pointer;
+    
     display: none;
 }
 
 @media screen and (max-width:768px) {
     .navToogler{
+        cursor: pointer;
         display: block;
     }
 
@@ -82,3 +93,13 @@ a{
     color: white;
     font-size: 20px;
 }
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-4px, 5px);
+  }
+  .toggle .line2 {
+    opacity: 0;
+  }
+  .toggle .line3 {
+    transform: rotate(45deg) translate(-4px, -5px);
+  }

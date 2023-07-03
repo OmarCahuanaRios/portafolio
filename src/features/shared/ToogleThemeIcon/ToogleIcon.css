@@ -78,13 +78,19 @@ html::before {
 }
 
 .toggle-wrapper {
-  width: 80px;
-  margin: auto;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .toggle {
-  height: 40px;
-  width: 80px;
+  height: 80px;
+  width: 40px;
   background: var(--foreground);
   border-radius: 20px;
   padding: 6px;
@@ -98,16 +104,16 @@ html::before {
   display: block;
   height: 26px;
   width: 26px;
-  border-radius: 13px;
+  border-radius: 50%;
   background: var(--background);
   position: absolute;
   z-index: 2;
-  transform: translate(0);
+  transform: translateY(0);
   transition: transform var(--transition), background var(--transition);
 }
 
 .toggle.enabled::before {
-  transform: translateX(40px);
+  transform: translateY(40px);
 }
 
 .toggle input {
@@ -118,8 +124,8 @@ html::before {
 
 .toggle .icons {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   height: 100%;
   margin: 0 4px;
 }
@@ -134,7 +140,5 @@ html::before {
 .Buttons{
   display: flex;
 }
-
-
 
 

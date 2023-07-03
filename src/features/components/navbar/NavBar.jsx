@@ -1,39 +1,32 @@
 import React, {useState} from 'react';
+import  { useEffect } from 'react';
 import '../navbar/NavBar.css'
-import ThemeToggle from '../../shared/ToogleThemeIcon/ToogleIcon';
+
 
 
 
 
 export default function NavBarComponent(props){
     const [active,setActive]=useState('navMenu');
-    const [language,setLanguage]=useState("spanish");
-    const [theme,setTheme]=useState(true);
+    
+    console.log("LLEGA",props.navLinkClass)
     const navToogler=()=>{
-        active==="navMenu"?setActive('navMenu navMenuActive'):setActive('navMenu')
+        setActive(active === 'navMenu' ? 'navMenu navMenuActive' : 'navMenu');
     }
 
-    const onClickToogler=()=>{
-        console.log("temita",theme)
-        setTheme(!theme)
-    }
 
     return(
         <>
         <nav className='nav'>
+
             <a href="#" className='brand'>&lt;Omar/&gt;</a>
-            <ul className={active} >
-                <li><a href="#" className='navlink'>Home</a></li>
-                <li><a href="#" className='navlink'>About</a></li>
-                <li><a href="#" className='navlink'>Experience</a></li>
-                <li><a href="#" className='navlink'>Skills</a></li>
-                <li><a href="#" className='navlink'>Projects</a></li>
-                <li><a href="#" className='navlink'>Contact</a></li>
+            <ul className={active}>
+                <li><a href="#" className={props.navLinkClass}>{props.navLinkClass}</a> </li>
+                <li><a href="#" className={props.navLinkClass}>{props.experienceText}</a></li>
+                <li><a href="#" className={props.navLinkClass}>{props.skillsText}</a></li>
+                <li><a href="#" className={props.navLinkClass}>{props.projectsText}</a></li>
+                <li><a href="#" className={props.navLinkClass}>{props.contactText}</a></li>
             </ul>
-           
-            <div className='Buttons' onClick={onClickToogler}>
-            <ThemeToggle />
-            </div>
             <div onClick={navToogler} className='navToogler'>
                 <div className='line1'></div>
                 <div className='line2'></div>
