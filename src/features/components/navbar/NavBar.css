@@ -44,20 +44,20 @@ a{
     color: white;
 }
 
-.navHamburguer div{
+.navToogler div{
     width: 3rem;
     height: 0.2rem;
     margin:0.4rem;
     background: white;
 }
 
-.navHamburguer{
+.navToogler{
     cursor:pointer;
     display: none;
 }
 
 @media screen and (max-width:768px) {
-    .navHamburguer{
+    .navToogler{
         display: block;
     }
 
@@ -68,6 +68,17 @@ a{
         width:50%;
         height:93vh;
         background:#282424;
+        flex-direction: column;
+        transform: translaTex(100%);
+        transition: 0.5s ease-in;
     }
-    
+}
+
+.navMenuActive{
+    transform: translaTex(0%);
+}
+
+.style-iconDark{
+    color: white;
+    font-size: 20px;
 }
