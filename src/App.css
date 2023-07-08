@@ -11,3 +11,41 @@
 [transition-style="in:circle:center"] {
   animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-in-center both;
 }
+
+
+.navToogler{
+  
+  z-index: 2;
+}
+
+video{
+  position: relative;
+  width: 100%;
+  z-index:-1;
+}
+
+@media screen and (max-width:768px) {
+  .navToogler{
+      cursor: pointer;
+      display: block;
+      
+  }
+
+  .navMenu{
+      position: fixed;
+      top:7vh;
+      right:0;
+      width:50%;
+      height:93vh;
+      background:#282424;
+      flex-direction: column;
+      translate: translaTex(100%);
+      transition: 0.5s ease-in;
+      z-index: 3;
+  }
+
+  video{
+    z-index: -1;
+  }
+}
+

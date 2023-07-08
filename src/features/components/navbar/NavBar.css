@@ -51,6 +51,7 @@ a{
     font-family:cursive;
     font-weight: bold;
     color: white;
+    z-index: 3;
 }
 
 .navToogler div{
@@ -62,7 +63,6 @@ a{
 }
 
 .navToogler{
-    
     display: none;
 }
 
@@ -82,11 +82,13 @@ a{
         flex-direction: column;
         transform: translaTex(100%);
         transition: 0.5s ease-in;
+        z-index: 3;
     }
 }
 
 .navMenuActive{
     transform: translaTex(0%);
+    z-index: 3;
 }
 
 .style-iconDark{

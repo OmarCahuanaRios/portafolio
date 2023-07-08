@@ -3,7 +3,8 @@ import NavBarComponent from './features/components/navbar/NavBar';
 import ThemeToggle from '../src/features/shared/ToogleThemeIcon/ToogleIcon';
 import React, {useState} from 'react';
 import  { useEffect } from 'react';
-
+import BodyComponent from './features/components/body/Body';
+import HomeComponent from './features/components/home/Home'
 function App() {
 
     const [language,setLanguage]=useState("spanish");
@@ -16,19 +17,26 @@ function App() {
     }
     
   return (
+    <> 
+    <div className='father'>
     <div >
-      <NavBarComponent 
-      navLinkClass={classNav}
-      aboutText="About" 
-      experienceText="Experience"
-      skillsText="Skills"
-      projectsText="Project"
-      contactText="Contact"
-      />
-      <div className='Buttons' onClick={changeData}>
-            <ThemeToggle />
-      </div>
+    <NavBarComponent 
+    navLinkClass={classNav}
+    aboutText="About" 
+    experienceText="Experience"
+    skillsText="Skills"
+    projectsText="Project"
+    contactText="Contact"
+    />
     </div>
+
+    <BodyComponent/>
+    <HomeComponent/>
+    </div>
+    
+  
+  </>
+   
   );
 }
 

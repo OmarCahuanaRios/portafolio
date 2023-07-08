@@ -21,7 +21,7 @@ export default function NavBarComponent(props){
 
             <a href="#" className='brand'>&lt;Omar/&gt;</a>
             <ul className={active}>
-                <li><a href="#" className={props.navLinkClass}>{props.navLinkClass}</a> </li>
+                <li><a href="#" className={props.navLinkClass}>{props.aboutText}</a> </li>
                 <li><a href="#" className={props.navLinkClass}>{props.experienceText}</a></li>
                 <li><a href="#" className={props.navLinkClass}>{props.skillsText}</a></li>
                 <li><a href="#" className={props.navLinkClass}>{props.projectsText}</a></li>

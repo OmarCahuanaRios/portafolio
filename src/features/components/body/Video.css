@@ -1,0 +1,38 @@
+.content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:white;
+}
+
+.overlay{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,1);
+
+}
+.maquinaType p {
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 5rem;
+    font-family: 'Chakra Petch', sans-serif; 
+    animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+  }
+
+  @media screen and (max-width:768px) {
+    .maquinaType p {
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 1.25rem;
+        font-family: 'Chakra Petch', sans-serif; 
+        animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+      }
+}
