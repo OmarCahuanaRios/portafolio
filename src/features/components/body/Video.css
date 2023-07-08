@@ -4,7 +4,6 @@
     height: 100%;
     top:0;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     color:white;
@@ -16,7 +15,7 @@
     left:0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,1);
+    background-color: rgba(0,0,0,0.8);
 
 }
 .maquinaType p {
@@ -28,11 +27,43 @@
   }
 
   @media screen and (max-width:768px) {
+    .maquinaType{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+       
+    }
+
     .maquinaType p {
         white-space: nowrap;
         overflow: hidden;
-        font-size: 1.25rem;
+        font-size: 2rem;
         font-family: 'Chakra Petch', sans-serif; 
         animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+
       }
+
+      .fotoperfil{
+        height: 10%;
+        width: 10%;
+        border-radius: 50%;  
+    }
+
+    .imagen{
+        margin: 10%;
+    }
+}
+
+.imagen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fotoperfil{
+    height: 80%;
+    width: 80%;
+    border-radius: 50%;
+    
 }

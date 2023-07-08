@@ -29,9 +29,17 @@ function App() {
     contactText="Contact"
     />
     </div>
-
+    <div className='bodyComponent'>
     <BodyComponent/>
+    </div>
+
+    <div className='homeComponent'>
     <HomeComponent/>
+
+    </div>
+
+   
+   
     </div>
     
   

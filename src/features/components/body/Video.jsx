@@ -1,6 +1,7 @@
 import React , { useState, useEffect }from 'react';
 import lora from './lora.mp4';
 import "./Video.css"
+import Yo from './Yo.png'
 
 
 const VideoComponent = () => {
@@ -82,7 +83,7 @@ const VideoComponent = () => {
   return (
     <div style={{ width: '100%',maxWidth:'100vw'}}>
         <div className="overlay"></div>
-    <video   src={lora} controls autoPlay loop muted onClick={handlePause}/>
+    <video   src={lora} controls autoPlay loop  onClick={handlePause}/>
     
       
     
@@ -99,6 +100,7 @@ const VideoComponent = () => {
         `}
     </style>
       <div className='content'>
+      <div class="imagen"><img src={Yo} class="fotoperfil" alt="foto perfil Eduardo"/></div>
         <div className='columna'>
             <div className="maquinaType">
                 <p style={codeStyle}>{text}</p>
@@ -108,6 +110,7 @@ const VideoComponent = () => {
                 <p style={codeStyle}>{thirdLine}{isBlinking?character:null}</p>
             </div>
         </div> 
+        
       </div>
     </div>
   );
