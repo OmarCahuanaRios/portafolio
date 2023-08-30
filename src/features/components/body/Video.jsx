@@ -1,116 +1,82 @@
-import React , { useState, useEffect }from 'react';
+import React, { useState, useEffect } from 'react';
 import lora from './lora.mp4';
-import "./Video.css"
-import Yo from './Yo.png'
-
+import './Video.css';
+import Yo from './Yo.png';
 
 const VideoComponent = () => {
-    const [text, setText] = useState('');
-    const [secondLine, setSecondLine] = useState('');
-    const [thirdLine, setThirdLine] = useState('');
-    const textToType = '¡Hola! Soy Omar :)';
-    const typeSecondLine= 'Frontend Developer';
-    const typeThirdLine= 'Junior'
-    const [isBlinking, setIsBlinking] = useState(true);
-    const character = '|';
+  const [text, setText] = useState('');
+  const [secondLine, setSecondLine] = useState('');
+  const [isSpace, setIsSpace] = useState(true);
+  const [showSoftwareEngineer, setShowSoftwareEngineer] = useState(true);
 
-    useEffect(() => {
-        let currentIndex = 0;
-        let currentIndex2 = 0;
-        let currentIndex3 = 0;
-        
-    
-         const intervalId = setInterval(() => {
-            if (currentIndex < textToType.length) {
-                const newText = textToType.substring(0, currentIndex + 1);
-                setText(newText);
-                currentIndex++;
-              } else {
-                clearInterval(intervalId);
-              }
-        }, 100); 
-        
+  const character = '|';
 
-        const intervalId2 = setInterval(() => {
-            if (currentIndex2 < typeSecondLine.length) {
-                const newText = typeSecondLine.substring(0, currentIndex2 + 1);
-                setSecondLine(newText);
-                currentIndex2++;
-              } else {
-                clearInterval(intervalId2);
-              }
-        }, 100); 
-    
+  
+  const jobTitles = ['Software Engineer', 'Full Stack Developer'];
 
-        const intervalId3 = setInterval(() => {
-            if (currentIndex3 < typeThirdLine.length) {
-                const newText = typeThirdLine.substring(0, currentIndex3 + 1);
-                setThirdLine(newText);
-                currentIndex3++;
-              } else {
-                clearInterval(intervalId3);
-              }
-        }, 100); 
+  useEffect(() => {
+    let currentIndex = 0;
+    let currentIndex2 = 0;
 
-        const caracterInterval = setInterval(() => {
-            setIsBlinking((prevIsBlinking) => !prevIsBlinking);
-          }, 500); // Tiempo en milisegundos entre el parpadeo
-      
+  
 
-        return () => {
-          clearInterval(intervalId);
-          clearInterval(intervalId2);
-          clearInterval(intervalId3);
-          clearInterval(caracterInterval);
-        };
-      }, []);
+    const intervalId2 = setInterval(() => {
+      if (currentIndex2 < (showSoftwareEngineer ? jobTitles[0] : jobTitles[1]).length) {
+        const newText = (showSoftwareEngineer ? jobTitles[0] : jobTitles[1]).substring(0, currentIndex2 + 1);
+        setSecondLine(newText);
+        currentIndex2++;
+      } else {
+        // When the second line text reaches the end, clear the interval and reset the index
+        clearInterval(intervalId2);
+        currentIndex2 = 0;
 
-      const handlePause = (event) => {
-        if (event.code=== 'Space') {
-          event.preventDefault(); 
-        }
-        event.preventDefault();
-      };
+        // Also, toggle the showSoftwareEngineer state to switch to the other job title
+        setTimeout(() => {
+          setShowSoftwareEngineer((prev) => !prev);
+        }, 2000);
+      }
+    }, 100);
 
-      document.addEventListener('keydown', handlePause);
+    const intervalId3 = setInterval(() => {
+      setIsSpace((prevIsSpace) => !prevIsSpace);
+    }, 500);
 
+    return () => {
+     
+      clearInterval(intervalId2);
+      clearInterval(intervalId3);
+    };
+  }, [showSoftwareEngineer]);
 
-      const codeStyle = {
-        fontFamily: 'Consolas, monospace',
-      };
-      
+  const handleKeyDown = () => {
+    // Do nothing when the user presses a key
+  };
 
   return (
-    <div style={{ width: '100%',maxWidth:'100vw'}}>
-        <div className="overlay"></div>
-    <video   src={lora} controls autoPlay loop  onClick={handlePause}/>
-    
+    <div style={{ width: '100%', maxWidth: '100vw' }}>
+      <video src={lora} autoPlay loop />
+      <div className="overlay"></div>
+
       
-    
-    <style>
-        {`
-        video::-webkit-media-controls-play-button,
-        video::-webkit-media-controls-overflow-button,
-        video::-webkit-media-controls-fullscreen-button,
-        video::-webkit-media-controls-timeline,
-        video::-webkit-media-controls-current-time-display,
-        video::-webkit-media-controls-time-remaining-display {
-          display: none !important;
-        }
-        `}
-    </style>
-      <div className='content'>
-      <div class="imagen"><img src={Yo} class="fotoperfil" alt="foto perfil Eduardo"/></div>
-        <div className='columna'>
+      <div className="content">
+        <div class="imagen">
+          <img src={Yo} class="fotoperfil" alt="foto perfil Eduardo" />
+        </div>
+        <div className="subContent">
+          <p className="name" >
+            Omar Cahuana
+          </p>
+          <div className="columna">
             <div className="maquinaType">
-                <p style={codeStyle}>{text}</p>
-                <br />
-                <p style={codeStyle}>{secondLine}</p>
-                <br />
-                <p style={codeStyle}>{thirdLine}{isBlinking?character:null}</p>
+              <br />
+              <p className="Mini" style={{ width: `${secondLine.length + 1}ch` }}>
+                {secondLine}
+                {isSpace ? character : null}
+              </p>
+              <br />
             </div>
-        </div> 
-        
+          </div>
+        </div>
       </div>
     </div>
   );

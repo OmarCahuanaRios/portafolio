@@ -22,10 +22,10 @@ function App() {
     <div >
     <NavBarComponent 
     navLinkClass={classNav}
-    aboutText="About" 
+    aboutText="About Me" 
     experienceText="Experience"
     skillsText="Skills"
-    projectsText="Project"
+    projectsText="Projects"
     contactText="Contact"
     />
     </div>
