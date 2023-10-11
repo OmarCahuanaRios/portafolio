@@ -1,0 +1,47 @@
+.imagen {
+    display: flex;
+    justify-content: center; /* entra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    text-align: center; /* Centra el texto dentro de .descripcion */
+    font-family: 'Verdana', 'Geneva', 'Tahoma', sans-serif;
+    ; /* Fondo gris oscuro */
+    padding: 20px; /* Espaciado interior */
+}
+
+.fotoperfil {
+    max-width: 100%; /* La imagen se ajustará al ancho de su contenedor */
+    border-radius: 50%; /* Da un borde redondeado a la imagen de perfil */
+}
+
+.descripcion {
+    font-family: 'Verdana', 'Geneva', 'Tahoma', sans-serif;
+    color: white;
+    max-width: 500px;
+    margin: 20px; /* Espaciado entre la imagen y el texto */
+}
+
+.descripcion p {
+    margin-bottom: 20px; /* Espaciado inferior entre párrafos */
+}
+
+.descripcion ul {
+    list-style-type: none; /* Elimina los puntos de lista */
+    text-decoration: none;
+    padding: 0; /* Elimina el espaciado interior de la lista */
+}
+
+.descripcion li {
+    text-decoration: none;
+    list-style-type: none;
+    padding-left: 20px; /* Añade un espacio antes de los elementos de la lista */
+    position: relative;
+    margin-bottom: 10px;
+}
+
+/* Agrega un ícono de viñeta personalizado a los elementos de la lista */
+.descripcion li::before {
+    
+    position: absolute;
+    left: 0;
+    color: #ff6600; /* Color de la viñeta */
+}
